@@ -60,7 +60,6 @@ public class Main {
 		for (Person person : emberek) {
 			if(oldCars(person.listCars(),1) >= 1) {
 				old.add(person);
-				System.out.println("added");
 			}
 		}
 
