@@ -25,9 +25,29 @@ public class Course {
 	}
 
 	public void addStudent(Student s) throws Exception {
+		int ide = -1;
 		for (int i = 0; i < students.length; i++) {
 			if (students[i] == s) {
-				throw new Exception("A hallgató már felvette a tárgyat");
+				throw new Exception("A hallgatÃ³ mÃ¡r felvette a tÃ¡rgyat");
+			} else if (students[i] == null) {
+				ide = i;
+			}
+		}
+		if (ide != -1) {
+			students[ide] = s;
+			return;
+		}
+
+		throw new Exception("Kurzus megtelt");
+
+	}
+	
+
+	/*
+	public void addStudent(Student s) throws Exception {
+		for (int i = 0; i < students.length; i++) {
+			if (students[i] == s) {
+				throw new Exception("A hallgatÃ³ mÃ¡r felvette a tÃ¡rgyat");
 			}
 		}
 		for (int i = 0; i < students.length; i++) {
@@ -40,6 +60,7 @@ public class Course {
 		throw new Exception("Kurzus megtelt");
 
 	}
+	*/
 
 	public void listStudents() {
 		for (int i = 0; i < students.length; i++) {
@@ -49,6 +70,7 @@ public class Course {
 		}
 	}
 
+	
 	public void removeByNeptun(String neptun) throws Exception {
 		for (int i = 0; i < students.length; i++) {
 			if (students[i] == null)
@@ -60,7 +82,7 @@ public class Course {
 			}
 		}
 
-		throw new Exception("Nincs ilyen neptunkód");
+		throw new Exception("Nincs ilyen neptunkÃ³d");
 
 	}
 
