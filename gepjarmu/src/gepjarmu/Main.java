@@ -7,8 +7,8 @@ public class Main {
 	public static void main(String[] args) {
 		Vehicle v1 = new Vehicle(1998, "HUHU20201", "koccsento");
 		Vehicle v2 = new Vehicle(2005, "HUHU20202", "koccsento2");
-		Person p1 = new Person(1998, "Ember Ember", "1234 JÛv·ros, December utca 42.");
-		Person p2 = new Person(1998, "Felfedezı DÛra", "1235 Rosszv·ros, Janu·r utca 1.");
+		Person p1 = new Person(1998, "Ember Ember", "1234 J√≥v√°ros, December utca 42.");
+		Person p2 = new Person(1998, "Felfedez≈ë D√≥ra", "1235 Rosszv√°ros, Janu√°r utca 1.");
 
 		ArrayList<Vehicle> autok = new ArrayList<>();
 		ArrayList<Person> emberek = new ArrayList<>();
@@ -32,41 +32,38 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		System.out.println(p1.listCars());
 
-		ArrayList<Vehicle> oldC = oldCars(autok, 2000); //2000-es Èv elıtt gy·rtott autÛk
+		System.out.println(oldCars(autok, 10)); // 2000-es √©v el≈ëtt gy√°rtott aut√≥k
+		
+		
 		ArrayList<Person> oldP = oldOwners(emberek);
 		for (Person person : oldP) {
 			System.out.println(person.getNev());
 		}
-		for (Vehicle vehicle : oldC) {
-			System.out.println(vehicle);
-		}
 
 	}
 
-	public static ArrayList<Vehicle> oldCars(ArrayList<Vehicle> autok, int gye) {
-		ArrayList<Vehicle> old = new ArrayList<>();
+	public static int oldCars(ArrayList<Vehicle> autok, int idos) {
+		int db = 0;
 		for (int i = 0; i < autok.size(); i++) {
-			if (autok.get(i).getGye() < gye) {
-				old.add(autok.get(i));
+			if (autok.get(i).getGye() < 2020 - idos) {
+				db++;
 			}
 		}
-		return old;
+		return db;
 
 	}
 
 	public static ArrayList<Person> oldOwners(ArrayList<Person> emberek) {
 		ArrayList<Person> old = new ArrayList<>();
-		for (int i = 0; i < emberek.size(); i++) {
-			for (int j = 0; j < emberek.get(i).listCars().size(); j++) {
-				if (emberek.get(i).listCars().get(j).getGye() < 2010 && !old.contains(emberek.get(i))) {
-					old.add(emberek.get(i));
-				}
+		for (Person person : emberek) {
+			if(oldCars(person.listCars(),1) >= 1) {
+				old.add(person);
+				System.out.println("added");
 			}
-
 		}
+
 		return old;
 
 	}
