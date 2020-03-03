@@ -34,7 +34,7 @@ public class Main {
 		}
 		System.out.println(p1.listCars());
 
-		System.out.println(oldCars(autok, 10)); // 2000-es év előtt gyártott autók
+		System.out.println(oldCars(autok, 10));
 		
 		
 		ArrayList<Person> oldP = oldOwners(emberek);
