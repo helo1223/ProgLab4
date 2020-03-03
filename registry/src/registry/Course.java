@@ -27,7 +27,7 @@ public class Course {
 	public void addStudent(Student s) throws Exception {
 		int ide = -1;
 		for (int i = 0; i < students.length; i++) {
-			if (students[i] == s) {
+			if (students[i] != null && students[i].getNeptun() == s.getNeptun()) {
 				throw new Exception("A hallgató már felvette a tárgyat");
 			} else if (students[i] == null) {
 				ide = i;
