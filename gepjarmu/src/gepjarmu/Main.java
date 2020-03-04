@@ -3,6 +3,7 @@ package gepjarmu;
 import java.util.ArrayList;
 
 public class Main {
+//csicska vagy
 
 	public static void main(String[] args) {
 		Vehicle v1 = new Vehicle(1998, "HUHU20201", "koccsento");
